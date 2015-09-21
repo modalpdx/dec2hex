@@ -37,12 +37,12 @@ int main(void)
 {
   int  idx;                      // general purpose index
   int  inputIdx;                 // index specific to stepping through user input 
-  int  bigEndian = 0;            // flag for big endian: 0 = false, 1 = true
+  int  littleEndian = 0;         // flag for little endian: 0 = false, 1 = true
   int  jump;                     // amount to jump when parsing user input string
   int  decimalNumber;            // final integer to convert
   long long inputDecimalNumber;  // temp placeholder for value to convert 
 
-  char ch, scrap;                // holds prompt for big endian conversion + stdin flush
+  char ch, scrap;                // holds prompt for little endian conversion + stdin flush
 
   char decIntBits[INTBITS + 1];  // holds bits that describe decimal integer
   char hexBits[HEXINTBITS + 1];  // holds hex value for decIntBits[]
@@ -55,17 +55,17 @@ int main(void)
 
   // Prompt for big endian or little endian output
   //
-  printf("Byte ordering is set to little endian. Switch to big endian? (Y = yes): ");
+  printf("Byte ordering is set to big endian. Switch to little endian? (Y = yes): ");
   scanf(" %c", &ch);
   while ((scrap = getchar()) != '\n' && scrap != EOF);  // flush stdin
   if(tolower(ch) == 'y')
   {
-      bigEndian = 1;
-      printf("Byte order: big-endian\n");
+      littleEndian = 1;
+      printf("Byte order: little-endian\n");
   }
   else
   {
-      printf("Byte order: little-endian\n");
+      printf("Byte order: big-endian\n");
   }
 
 
@@ -99,11 +99,11 @@ int main(void)
                   //
                   printf("%10d ", decimalNumber);
 
-                  // convert to big endian byte ordering if requested
+                  // convert to little endian byte ordering if requested
                   //
-                  if(bigEndian == 1)
+                  if(littleEndian == 1)
                   {
-                      toBigEndian(decIntBits);
+                      toLittleEndian(decIntBits);
                   }
 
           

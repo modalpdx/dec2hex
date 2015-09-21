@@ -23,7 +23,7 @@
 
 
 int  intToBin(int aDecimalNumber, char * binaryBits);   // Convert decimal to binary
-void toBigEndian(char * binaryBits);                    // Convert from little endian (default) to big endian
+void toLittleEndian(char * binaryBits);                 // Convert from big endian (default) to little endian
 char intToHexChar(int myInt);                           // Convert individual 0-15 integer to hex
 void binToHex(char * binaryBits, char * hexBits);       // Convert integer to hex value
 

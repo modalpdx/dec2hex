@@ -123,7 +123,7 @@ int intToBin(int aDecimalNumber, char * binaryBits)
 
 
 // ------------------------------------------------------------------- 
-// toBigEndian: converts byte ordering of binary array
+// toLittleEndian: converts byte ordering of binary array
 // -------------------------------------------------------------------
 //
 // Input:
@@ -135,7 +135,7 @@ int intToBin(int aDecimalNumber, char * binaryBits)
 // Notes:
 //   none
 // 
-void toBigEndian(char * binaryBits)
+void toLittleEndian(char * binaryBits)
 {
 
     int  byteIdx;                   // index of byte in bytes[]
@@ -144,7 +144,7 @@ void toBigEndian(char * binaryBits)
     int  iterations = INTBITS / 8; 
     char bytes[iterations][9];      // temp array to hold reordered bytes
 
-    // populate the temporary bytes[] array in big endian order
+    // populate the temporary bytes[] array in little endian order
     //
     binIdx = 0;
     for(byteIdx = iterations - 1; byteIdx >= 0; byteIdx--)
@@ -166,7 +166,7 @@ void toBigEndian(char * binaryBits)
         }
     }
 
-} // end of toBigEndian()
+} // end of toLittleEndian()
 
 
 
